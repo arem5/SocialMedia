@@ -18,7 +18,7 @@ namespace EntityLayer.Concrete
         public DateTime TweetDate { get; set; }
 
         
-        public int UserId { get; set; }
+        public int? UserId { get; set; }
         [ForeignKey("UserId")]
         public virtual User User { get; set; }
 

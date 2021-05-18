@@ -14,13 +14,13 @@ namespace EntityLayer.Concrete
         public int LikeId { get; set; }
 
         
-        public int UserId { get; set; }
+        public int? UserId { get; set; }
         [ForeignKey("UserId")]
         public virtual User User { get; set; }
 
         
         
-        public int TweetId { get; set; }
+        public int? TweetId { get; set; }
         [ForeignKey("TweetId")]
         public virtual Tweet Tweet { get; set; }
 
