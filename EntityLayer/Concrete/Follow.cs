@@ -11,8 +11,9 @@ namespace EntityLayer.Concrete
     {
         public int FollowId { get; set; }
 
-        [ForeignKey("UserId")]
+        
         public int UserId { get; set; }
+        [ForeignKey("UserId")]
         public virtual User User { get; set; }
 
     }

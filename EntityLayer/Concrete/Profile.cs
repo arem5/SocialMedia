@@ -15,8 +15,9 @@ namespace EntityLayer.Concrete
         public string ProfileImage { get; set; }
         public DateTime DateProfileCreated { get; set; }
 
-        [ForeignKey("UserId")]
+
         public int UserId { get; set; }
+        [ForeignKey("UserId")]
         public virtual User User { get; set; }
 
     }

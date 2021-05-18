@@ -17,8 +17,9 @@ namespace EntityLayer.Concrete
         public string? Media { get; set; }        
         public DateTime TweetDate { get; set; }
 
-        [ForeignKey("UserId")]
+        
         public int UserId { get; set; }
+        [ForeignKey("UserId")]
         public virtual User User { get; set; }
 
         public ICollection<Retweet> Retweets { get; set; }
