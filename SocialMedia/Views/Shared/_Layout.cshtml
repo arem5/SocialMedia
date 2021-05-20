@@ -1,48 +1,116 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - SocialMedia</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="~/css/style.css" />
+
+    <link rel="stylesheet" href="~/css/style_profile.css">
 </head>
+
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">SocialMedia</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">
+          You are using an <strong>outdated</strong> browser. Please
+          <a href="#">upgrade your browser</a> to improve your experience.
+        </p>
+      <![endif]-->
+    <div class="container">
+        <div class="sidenav">
+            <ul>
+                <li>
+                    <a href="/Home/Index"><img src="~/images/twitter_icon.png" /></a>
+                </li>
+                <li>
+                    <a href="/Home/Index" style="color: #9dcef9"><img src="~/images/home-solid.svg" />Home</a>
+                </li>
+                <li>
+                    <a><img src="~/images/hashtag-solid.svg" />Explore</a>
+                </li>
+                <li>
+                    <a><img src="~/images/bell-regular.svg" />Notifications</a>
+                </li>
+                <li>
+                    <a><img src="~/images/envelope-regular.svg" />Message</a>
+                </li>
+                <li>
+                    <a href="/Profile/Index"><img src="~/images/user-regular.svg" />Profile</a>
+                </li>
+                <li>
+                    <a> <img src="~/images/ellipsis-h-solid.svg" />&nbsp;More</a>
+                </li>
+                <li><button class="nav-tweet-btn">Tweet</button></li>
+            </ul>
+        </div>
+        <div class="post-section">
+            @RenderBody()
+        </div>
+        <div class="trending-section">
+            <div class="search-bar">
+                <input type='search' placeholder='Search Twitter' />
+            </div>
+            <div class="trending-card sticky">
+                <div class='trending-header'>
+                    <h1>What's happening</h1>
+                </div>
+                <div class='info-card'>
+                    <div class='info-content'>
+                        <p>COVID-19 . LIVE</p>
+                        <p>COVID-19 in India</p>
+                    </div>
+                    <div class='info-img'>
+                        <img src='images/covid.jpeg' />
+                    </div>
+                </div>
+                <div class='info-card'>
+                    <div class='info-content'>
+                        <p>COVID-19 . LIVE</p>
+                        <p>COVID-19 in India</p>
+                    </div>
+                    <div class='info-img'>
+                        <img src='images/covid.jpeg' />
+                    </div>
+                </div>
+                <div class='info-card'>
+                    <div class='info-content'>
+                        <p>COVID-19 . LIVE</p>
+                        <p>COVID-19 in India</p>
+                    </div>
+                    <div class='info-img'>
+                        <img src='images/covid.jpeg' />
+                    </div>
+                </div>
+                <div class='info-card'>
+                    <div class='info-content'>
+                        <p>COVID-19 . LIVE</p>
+                        <p>COVID-19 in India</p>
+                    </div>
+                    <div class='info-img'>
+                        <img src='images/covid.jpeg' />
+                    </div>
+                </div>
+                <div class='info-card'>
+                    <div class='info-content'>
+                        <p>COVID-19 . LIVE</p>
+                        <p>COVID-19 in India</p>
+                    </div>
+                    <div class='info-img'>
+                        <img src='images/covid.jpeg' />
+                    </div>
                 </div>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+        </div>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - SocialMedia - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+    <script src="" async defer></script>
 </body>
+
 </html>

@@ -1,0 +1,263 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: grid;
+    /* /* grid-template-columns: 2fr 3fr 3fr; */
+
+    
+    grid-template-areas:
+        "sidenav post-section  trending-section ";
+}
+
+.sidenav {
+    
+    position:fixed;
+    grid-area: sidenav;
+    height: 100vh;
+}
+
+.sidenav>ul {
+
+    padding: 0 0 0 1rem;
+    list-style: none;
+
+}
+
+.sidenav>ul>li {
+
+    padding: 0 1rem 1rem 1rem;
+}
+
+.sidenav>ul>li>a {
+
+    font-size: 2rem;
+    line-height: 1.5;
+
+}
+
+/* .sidenav>ul>li>a:active {
+    color: #9DCEF9;
+} */
+
+.sidenav>ul>li>a>img {
+
+    padding: 0 0.5rem 0 0;
+    width: 25px;
+}
+
+.nav-tweet-btn {
+    width: 200px;
+    padding: 0.8rem;
+    border-radius: 3rem;
+    color: white;
+    background-color: #1DA1F2;
+    outline: none;
+    border-style: none;
+}
+
+.sidenav>ul>li:hover {
+    display: inline;
+    width: 82%;
+    /* border: 0px solid gray; */
+    /* border-radius: 1rem; */
+    /* background-color: #EBF4FE; */
+    color: #9DCEF9;
+    /* padding: 1rem; */
+}
+
+.post-section {
+   
+    display: grid;
+   
+    margin-left:18%;
+    grid-row-gap: 30px;
+    grid-area: post-section;
+    grid-template-rows: 80px 100px;
+    /* grid-template-areas:
+        "post-header"
+        "create-tweet"; */
+
+
+
+}
+
+.post-section>h2 {
+    /* grid-area: post-header; */
+   margin:0;
+    width:45.6%;
+    padding:1%;
+    background-color: white;
+    z-index:1;
+    position: fixed;
+}
+.create-tweet{
+   
+    display:grid;
+    grid-template-areas: "block-1 "
+    "block-2"
+    "block-3";
+}
+
+.create-tweet {
+    position: relative;
+    /* grid-area: create-tweet */
+}
+.block-1{
+    display:grid;
+    grid-template-columns:1fr 4fr;
+    align-items:center;
+    grid-area:block-1;
+}
+
+.block-1>img {
+   
+    width: 60px;
+    border-radius: 50%;
+    /* grid-area: post-img; */
+
+}
+
+
+.block-1>span {
+    padding: 0;
+    /* grid-area: post-span; */
+
+}
+
+.block-2{
+    grid-area:block-2;
+}
+
+.block-2>ul {
+    list-style: none;
+}
+
+.block-2>ul>li {
+    padding: 1rem;
+    display: inline;
+}
+
+.block-2>ul>li>img {
+    width: 18px;
+
+}
+.block-3{
+    grid-area:block-3;
+}
+
+.post-tweet-btn {
+    color: white;
+    background-color: #1DA1F2;
+    border-radius: 1rem;
+    outline: none;
+    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+    border-style: none;
+    position: absolute;
+    right:8rem;
+
+
+}
+
+.post-card{
+    display:grid;
+    grid-template-areas: 
+    "card-block-1"
+    "card-block-2";
+}
+
+.card-block-1{
+    display:grid;
+    grid-area:card-block-1;
+    grid-template-columns: 70px 600px;;
+}
+.card-block-1>img{
+    width: 60px;
+    border-radius:50%;
+}
+
+.card-block-2{
+    grid-area:card-block-2;
+   
+   
+}
+.card-block-2>img{
+    width:300px;
+    margin-left:9%;
+    
+}
+
+.trending-section {
+   
+    display:grid;
+    grid-area: trending-section;
+    grid-template-rows: 50px auto;
+  
+   
+}
+
+.search-bar{
+    /* grid-area:search-bar; */
+   
+    
+    margin:0.5% 2% 2% 2% ;
+    background-color: white;
+    z-index:1;
+    position: fixed;
+    
+}
+.search-bar>input{
+    width:340px;
+    padding:1rem 1.5rem 1rem 1.5rem;
+    border-radius:2rem;
+    outline:none;
+    background-color:lightgray;
+    margin-left:10%;
+   
+    
+}
+
+.trending-card{
+    /* grid-area:trending-card; */
+    /* border:1px solid gray; */
+    border-radius:1rem;
+    justify-self: center;
+    /* padding:1rem 5rem; */
+    margin-top:7%;
+}
+.trending-header>h1{
+    margin:0;
+    font-size:1.5rem;
+  background-color:gray;
+  padding:1rem 5rem;
+  border-radius: 1rem 1rem 0rem 0rem;
+}
+.info-card{
+    display:grid;
+    grid-template-columns:2fr 1fr ;
+    padding:1rem;
+    justify-items:center;
+    align-items:center;
+    background-color:#EFF1F2;
+}
+.info-card:hover{
+    background-color:lightgray;
+}
+
+.info-img>img{
+    width:70px;
+    height:60px;
+    border-radius:1rem;
+    justify-self:center
+}
+.sticky{
+    position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  
+  padding: 50px 0 0 0 ;
+  font-size: 20px;
+}
