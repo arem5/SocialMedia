@@ -1,0 +1,106 @@
+﻿@using EntityLayer.Concrete
+@model List<Tweet>
+@{
+    Layout = "_Layout";
+}
+
+<h2 class="heading">Home<span style="float:right"><img style='border-radius:50%;border:1px solid #1DA1F2' src='~/images/top_tweet.png' /></span></h2>
+<br />
+<div class="create-tweet">
+    <form asp-controller="Post" asp-action="InsertTweet" method="post" enctype="multipart/form-data">
+        <div class='block-1'>
+            <img src="~/images/profile.jpg" />
+
+
+            <div class="row">
+                <div class="col-lg-12 col-12 mb-30">
+                    <input asp-for="Content" class="form-control" type="text" placeholder="Tweet'le..">
+                </div>
+                <br />
+            </div>
+            <input type="hidden" />
+
+        </div>
+        <div class='block-2'>
+            <ul>
+                <li><img src="~/images/image-regular.svg" /></li>
+                <li><img src="~/images/gif.svg" /></li>
+                <li><img src="~/images/poll.svg" /></li>
+                <li><img src="~/images/smile-regular.svg" /></li>
+                <li><img src="~/images/event.svg" /></li>
+                <li><button class="btn post-tweet-btn">Tweet</button></li>
+
+            </ul>
+        </div>
+    </form>
+</div>
+
+@foreach (var item in Model)
+{
+    <div class="post-card">
+        <div class='card-block-1'>
+            <img src="@item.Media" class="profile-icon" />
+            <p class="profile-name">
+                @item.UserId <span class="profile-username">@item.UserId</span><br />
+                <span class='post-info'>&nbsp;@item.Content</span>
+
+                @*<span class='hastag'>#braindevelopment #pubg</span>*@
+            </p>
+        </div>
+        <div class="card-block-2">
+            <img src=@item.Media class='post-thumbnail' />
+        </div>
+        <div class="actions">
+            <a href=""><img src="~/images_profile/chat.svg" alt="Comments">1 </a>
+            <a href=""><img src="~/images_profile/refresh.svg" alt="Retweet"> @item.Retweets</a>
+            <a href=""><img src="~/images_profile/heart.svg" alt="Likes"> @item.Likes</a>
+        </div>
+        <span class='post-info'>&nbsp;@item.TweetDate</span>
+    </div>
+}
+
+
+
+
+@*<div class="post-card">
+        <div class='card-block-1'>
+            <img src="~/images/hackernoon.jpeg" class="profile-icon" />
+            <p class="profile-name">
+                HackerNoon <span class="profile-username">hackernoon</span><span class='post-info'>&nbsp;"Why Chess is Better than Video Games"</span> <span class='post-url'>https://hackernoon.com/why-chess-is-better-than-video-games-7t4734vl</span><br /> <span class='hastag'>#braindevelopment #pubg</span>
+            </p>
+        </div>
+        <div class="card-block-2">
+            <img src='~/images/post_thumbnail.png' class='post-thumbnail' />
+        </div>
+        <div class="actions">
+            <a href=""><img src="~/images_profile/chat.svg" alt="Comments"> 15</a>
+            <a href=""><img src="~/images_profile/refresh.svg" alt="Retweet"> 7</a>
+            <a href=""><img src="~/images_profile/heart.svg" alt="Likes"> 6</a>
+        </div>
+    </div>
+
+    <div class="post-card">
+        <div class='card-block-1'>
+            <img src="~/images/hackernoon.jpeg" class="profile-icon" />
+            <p class="profile-name">
+                HackerNoon <span class="profile-username">hackernoon</span><span class='post-info'>&nbsp;"Why Chess is Better than Video Games"</span> <span class='post-url'>https://hackernoon.com/why-chess-is-better-than-video-games-7t4734vl</span><br /> <span class='hastag'>#braindevelopment #pubg</span>
+            </p>
+        </div>
+        <div class="card-block-2">
+            <img src='~/images/post_thumbnail.png' class='post-thumbnail' />
+        </div>
+        <div class="actions">
+            <a href=""><img src="~/images_profile/chat.svg" alt="Comments"> 15</a>
+            <a href=""><img src="~/images_profile/refresh.svg" alt="Retweet"> 7</a>
+            <a href=""><img src="~/images_profile/heart.svg" alt="Likes"> 6</a>
+        </div>
+    </div>*@
+
+
+
+
+
+
+
+
+

@@ -1,4 +1,7 @@
+using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete;
+using DataAccessLayer.Concrete.Repositories;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -25,12 +28,17 @@ namespace SocialMedia
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddControllersWithViews();
 
 
             services.AddDbContext<Context>(options => options.UseSqlServer(Configuration.GetConnectionString("SocialMedia")));
+            services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
 
-            services.AddControllersWithViews();
+            //Authentication Kullanmak için. Controllerda Admin sayfasý için
+            //Asp.Net Core MVC oturum yönetimi için Core Identity middleware, hazýr yapý.
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options => { options.LoginPath = "/account/login"; });  //Configure tarafýna bu authentiaciton ý kullanabilirsin demeliyiz. burada 65.satýr. "app.UseAuthentication();" 
+
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,10 +59,16 @@ namespace SocialMedia
 
             app.UseRouting();
 
+            app.UseAuthentication();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                 name: "areas",
+                 pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

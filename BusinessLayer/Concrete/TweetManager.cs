@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Abstract;
+using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -10,9 +11,16 @@ namespace BusinessLayer.Concrete
 {
     public class TweetManager : ITweetService
     {
+        ITweetDal _tweetDal;
+
+        public TweetManager(ITweetDal tweetDal)
+        {
+            _tweetDal = tweetDal;
+        }
+
         public void AddTweet(Tweet tweet)
         {
-            throw new NotImplementedException();
+            _tweetDal.Insert(tweet);
         }
 
         public void CommentTargetUser(int userid)
@@ -25,14 +33,11 @@ namespace BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
-        public List<Tweet> GetList()
-        {
-            throw new NotImplementedException();
-        }
+        public List<Tweet> GetList() => _tweetDal.GetList();
 
         public void TweetDelete(Tweet tweet)
         {
-            throw new NotImplementedException();
+            _tweetDal.Delete(tweet);
         }
     }
 }

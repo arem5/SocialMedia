@@ -9,7 +9,6 @@ namespace DataAccessLayer.Abstract
 {
     public interface IRepository<T>
     {
-
         List<T> GetList();
 
         void Insert(T e);
@@ -19,7 +18,7 @@ namespace DataAccessLayer.Abstract
         void Update(T e);
 
         void Delete(T e);
-
         List<T> GetList(Expression<Func<T, bool>> filter); //Şartlı Listeleme yapar.
+        bool Any(Expression<Func<T, bool>> exp);
     }
 }
